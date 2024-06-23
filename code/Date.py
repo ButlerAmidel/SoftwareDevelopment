@@ -34,9 +34,15 @@ class Date(date):  # Define Date class inheriting from datetime.date
         year = self.year
         return (year % 4 == 0) and (year % 100 != 0 or year % 400 == 0)
 
-    @staticmethod
-    def daysInYear(year):  # Static method to calculate days in a given year
-        """Calculate the number of days in a given year using the isLeapYear method."""
-        return 366 if Date(year, 1, 1).isLeapYear() else 365
+    def daysInYear(self):  # Instance method to calculate days in the instantiated year
+        """Calculate the number of days in the instantiated year using the isLeapYear method."""
+        return 366 if self.isLeapYear() else 365
+
+# Example usage:
+
+new_date = Date(2023,1,1)
+print(new_date.daysInYear())
+
+
 
 

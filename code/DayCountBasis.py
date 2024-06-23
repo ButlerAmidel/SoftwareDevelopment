@@ -124,17 +124,17 @@ class DayCountBasis:
 
 
 
-# Example usage:
-if __name__ == "__main__":
-    basis = 'act/act'
-    day_count_basis = DayCountBasis(basis)
+# # Example usage:
+# if __name__ == "__main__":
+#     basis = 'act/act'
+#     day_count_basis = DayCountBasis(basis)
     
-    start_date = date(2024, 6, 1)
-    end_date = date(2024, 12, 31)
+#     start_date = date(2024, 6, 1)
+#     end_date = date(2024, 12, 31)
     
-    try:
-        fraction = day_count_basis.dayCountFraction(start_date, end_date)
-        print(f"Day count fraction based on {basis}: {fraction}")
-    except ValueError as e:
-        print(f"Error: {str(e)}")
+#     try:
+#         fraction = day_count_basis.dayCountFraction(start_date, end_date)
+#         print(f"Day count fraction based on {basis}: {fraction}")
+#     except ValueError as e:
+#         print(f"Error: {str(e)}")
 
