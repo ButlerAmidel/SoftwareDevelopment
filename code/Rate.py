@@ -39,7 +39,7 @@ class DayCountConvention(enum.Enum):
 
 
 
-class RateUtility:
+class Rate:
     
     @staticmethod
     def equivalentRate(rate, fromCompounding, fromBasis, toCompounding, toBasis):
@@ -93,7 +93,7 @@ class RateUtility:
 
 
 
-'''
+
 
 from datetime import date
 
@@ -101,7 +101,7 @@ from datetime import date
 rate = 0.10  # 10% rate
 
 # Convert from NACA with ACT/365 to NACM with ACT/360
-converted_rate = RateUtility.equivalentRate(
+converted_rate = Rate.equivalentRate(
     rate=rate,
     fromCompounding=CompoundingFrequency.NACC,
     fromBasis=DayCountConvention.ACT_365,
@@ -114,7 +114,7 @@ print(f"Converted rate: {converted_rate:.6f}")
 # Calculate discount factor
 start_date = date(2023, 1, 1)
 end_date = date(2024, 1, 1)
-discount_factor = RateUtility.discountFactor(
+discount_factor = Rate.discountFactor(
     rate=rate,
     compounding=CompoundingFrequency.NACC,
     dayCountConvention=DayCountConvention.ACT_365,
@@ -123,10 +123,4 @@ discount_factor = RateUtility.discountFactor(
 )
 
 print(f"Discount factor: {discount_factor:.6f}")
-
-'''
-
-
-
-
 

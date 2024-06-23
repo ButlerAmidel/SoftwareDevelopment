@@ -7,7 +7,6 @@ Created on Mon Jun 17 14:16:36 2024
 
 # date.py
 from datetime import date, datetime  # Import necessary modules
-import calendar  # Import calendar module for leap year calculation
 
 class Date(date):  # Define Date class inheriting from datetime.date
     def __new__(cls, *args, **kwargs):
@@ -31,8 +30,13 @@ class Date(date):  # Define Date class inheriting from datetime.date
             raise ValueError("Invalid arguments. Use 'YYYY-MM-DD' or (YYYY, MM, DD)")
 
     def isLeapYear(self):  # Instance method to check if the year is a leap year
-        return calendar.isleap(self.year)  # Return True if leap year, False otherwise
+        """Check if the year is a leap year using standard leap year rules."""
+        year = self.year
+        return (year % 4 == 0) and (year % 100 != 0 or year % 400 == 0)
 
     @staticmethod
     def daysInYear(year):  # Static method to calculate days in a given year
-        return 366 if calendar.isleap(year) else 365  # Return 366 for leap year, 365 otherwise
+        """Calculate the number of days in a given year using the isLeapYear method."""
+        return 366 if Date(year, 1, 1).isLeapYear() else 365
+
+

@@ -6,8 +6,8 @@ Created on Mon Jun 17 20:49:30 2024
 """
 from enum import Enum
 from datetime import datetime, date
-from my_Calendar import Calendar  # Assuming Calendar class is defined in calendar_module
-from my_Date import Date
+from Calendar import Calendar  # Assuming Calendar class is defined in calendar_module
+from Date import Date
 
 class DayCountConvention(Enum):
     ACT_365 = 'act/365'
@@ -123,7 +123,7 @@ class DayCountBasis:
 
 
 
-''' 
+
 # Example usage:
 if __name__ == "__main__":
     basis = 'act/act'
@@ -138,4 +138,3 @@ if __name__ == "__main__":
     except ValueError as e:
         print(f"Error: {str(e)}")
 
-'''         

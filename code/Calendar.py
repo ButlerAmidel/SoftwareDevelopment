@@ -273,7 +273,7 @@ zaCal = Calendar("za")
 
 #print(zaCal.addBusinessDays(date(2024,6,1),0,"mp"))
 
-print(zaCal.addTenor(date(2024,6,15),"1w","f",False))
+#print(zaCal.addTenor(date(2024,6,15),"1w","f",False))
 
 
 
