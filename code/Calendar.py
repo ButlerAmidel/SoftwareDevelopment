@@ -256,22 +256,24 @@ class Calendar:
     
     
 
-'''
-zaCal = Calendar("za+US")
+zaCal = Calendar("za")
 
 #print(zaCal.getHolidaysData(date(2024,1,1), date(2024,12,31)))
 
 
-print(zaCal.isBusinessDay(date(2024,6,17)))
+#print(zaCal.isBusinessDay(date(2024,6,24)))
 
 
-print(zaCal.numBusinessDaysBetween(date(2024,1,1), date(2024,12,31)))
+#print(zaCal.numBusinessDaysBetween(date(2024,1,1), date(2024,12,31)))
 
 
 #print(zaCal.getHolidaysData(date(2024,1,1), date(2024,12,31)))
 
-'''
+#print(zaCal.getLastBusinessDateInMonth(date(2024,6,2)))
 
+#print(zaCal.addBusinessDays(date(2024,6,1),0,"mp"))
+
+print(zaCal.addTenor(date(2024,6,15),"1w","f",False))
 
 
 
