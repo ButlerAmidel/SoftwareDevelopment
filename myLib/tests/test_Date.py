@@ -12,7 +12,7 @@ import os
 # Ensure the code directory is in the sys.path
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'code')))
 
-from my_Date import Date
+from Date import Date
 
 class TestDate(unittest.TestCase):
 
@@ -58,13 +58,14 @@ class TestDate(unittest.TestCase):
         self.assertFalse(date.isLeapYear())
 
     def test_daysInYear(self):
-        self.assertEqual(Date.daysInYear(2024), 366)
-        self.assertEqual(Date.daysInYear(2023), 365)
+        date = Date(2024,1,1)
+        self.assertEqual(date.daysInYear(), 366)
+
+        date = Date(2023,1,1)
+        self.assertEqual(date.daysInYear(), 365)
 
 if __name__ == '__main__':
     unittest.main()
-
-
 
 
 

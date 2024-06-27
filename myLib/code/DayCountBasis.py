@@ -5,7 +5,7 @@ Created on Mon Jun 17 20:49:30 2024
 @author: ButlerMasango
 """
 from enum import Enum
-from datetime import datetime, date
+from datetime import date
 from Calendar import Calendar  # Assuming Calendar class is defined in calendar_module
 from Date import Date
 
@@ -68,15 +68,15 @@ class DayCountBasis:
         
         end_date = Calendar.validateDateRange(start_date, end_date)
         if start_date.year == end_date.year:
-            return (end_date - start_date).days / Date.daysInYear(start_date.year)
+            return (end_date - start_date).days / Date.daysInYear(start_date)
         else:
-            fractionFirstYear = ((date(start_date.year, 12, 31) - start_date).days + 1) / Date.daysInYear(start_date.year)
-            fractionLastYear = (end_date - date(end_date.year, 1, 1)).days / Date.daysInYear(end_date.year)
+            fractionFirstYear = ((date(start_date.year, 12, 31) - start_date).days + 1) / Date.daysInYear(start_date)
+            fractionLastYear = (end_date - date(end_date.year, 1, 1)).days / Date.daysInYear(end_date)
             yearsBetween = (end_date.year - start_date.year - 1)
             return fractionFirstYear + yearsBetween + fractionLastYear
     
     @staticmethod
-    def thirty360(start_date, end_date):
+    def thirty360(start_date, end_date): # same as in the sigma function 30/360
         """Calculate day count fraction using 30/360 basis"""
         end_date = Calendar.validateDateRange(start_date, end_date)
         d1, m1, y1 = start_date.day, start_date.month, start_date.year
@@ -88,7 +88,7 @@ class DayCountBasis:
         return ((360 * (y2 - y1)) + (30 * (m2 - m1)) + (d2 - d1)) / 360.0
     
     @staticmethod
-    def thirty360e(start_date, end_date):
+    def thirty360e(start_date, end_date): # same as in the sigma function 30/360e
         """Calculate day count fraction using 30/360E basis"""
         end_date = Calendar.validateDateRange(start_date, end_date)
         d1, m1, y1 = start_date.day, start_date.month, start_date.year
@@ -100,7 +100,7 @@ class DayCountBasis:
         return ((360 * (y2 - y1)) + (30 * (m2 - m1)) + (d2 - d1)) / 360.0
     
     @staticmethod
-    def thirty360ee(start_date, end_date):
+    def thirty360ee(start_date, end_date): # derived from the SAFM notes
         """Calculate day count fraction using 30/360EE basis"""
         end_date = Calendar.validateDateRange(start_date, end_date)
         d1, m1, y1 = start_date.day, start_date.month, start_date.year
@@ -119,22 +119,4 @@ class DayCountBasis:
                 d2 = 30
         return ((360 * (y2 - y1)) + (30 * (m2 - m1)) + (d2 - d1)) / 360.0
 
-
-
-
-
-
-# # Example usage:
-# if __name__ == "__main__":
-#     basis = 'act/act'
-#     day_count_basis = DayCountBasis(basis)
-    
-#     start_date = date(2024, 6, 1)
-#     end_date = date(2024, 12, 31)
-    
-#     try:
-#         fraction = day_count_basis.dayCountFraction(start_date, end_date)
-#         print(f"Day count fraction based on {basis}: {fraction}")
-#     except ValueError as e:
-#         print(f"Error: {str(e)}")
 

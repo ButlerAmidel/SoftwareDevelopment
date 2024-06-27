@@ -236,7 +236,7 @@ class Calendar:
                     finalEndDate = rawEndDate
                     rawEndDate -= timedelta(days=1)
                 if finalEndDate.month != rawEndDate.month:
-                    finalEndDate = self.addBusinessDays(finalEndDate + timedelta(days=1), 0)
+                    finalEndDate = self.addBusinessDays(finalEndDate + timedelta(days=1), 1)
         self.validateDateRange(finalEndDate)
         return finalEndDate
 

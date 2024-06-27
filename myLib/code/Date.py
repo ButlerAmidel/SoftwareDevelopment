@@ -42,4 +42,3 @@ class Date(date):  # Define Date class inheriting from datetime.date
 
 
 
-
