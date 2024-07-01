@@ -6,7 +6,7 @@ Created on Mon Jun 17 20:49:30 2024
 """
 from enum import Enum
 from datetime import date
-from Calendar import Calendar  # Assuming Calendar class is defined in calendar_module
+from Calendar import Calendar 
 from Date import Date
 
 class DayCountConvention(Enum):
@@ -120,3 +120,10 @@ class DayCountBasis:
         return ((360 * (y2 - y1)) + (30 * (m2 - m1)) + (d2 - d1)) / 360.0
 
 
+
+
+# dcb = DayCountBasis('act/360')
+# start_date = date(2024, 1, 1)
+# end_date = date(2024, 5, 27)
+# fraction = dcb.dayCountFraction(start_date, end_date)
+# print(fraction)
